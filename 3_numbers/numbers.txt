@@ -1,0 +1,118 @@
+//JS Numbers
+
+//Whole numbers
+var a=11,
+    b=-123;
+//Floating point numbers
+var c=1.5,
+    d=123.456789;
+
+In JS, there's only one type of number. a is 11.0 actually.
+
+var e=0.1,
+    f=0.2;
+
+var result=e*f; //Gives something very near to 0.02 but not actually 0.02! There's a rounding error.
+
+var g=1000000; 
+//Alternative to the above
+var g=1E6;
+var g=1.23E6; //1230000
+
+var h= 012; //Octal number. In Octal, each place represnts a powerof 8 not 10.
+This is hence 10.
+
+var h=019; //Highest digit can be only 7. This is hence 19...interpreted as decimal.
+
+// ff 00 00
+
+var i=0xff; //255. Hexadecimal.
+
+//Some methods
+var j=parseInt("197"); //String to Integer.
+var j=parseInt("012"); //Gives 10. 
+var j=parseInt("019"); //Strange behaviour.
+
+So we could give the radix as a second argument
+var j=parseInt("019",10);
+var j=parseInt("010111",2); //Binary
+var l=parseInt("23 people",10); //23 output
+var l=parseInt("there 23 people");//NaN
+
+NaN->operation->NaN
+
+console.log(l===NaN);
+
+console.log(isNaN(l)); //true
+
+var m=parseFloat("123.456");
+//Returns a floating point number. Similar functionality and properties
+
+parseFloat works in base 10 always.
+
+Mathematical operators on Numbers
+
++, -,* work with both floating point and whole numbers as expected
+
+divison: / 16/8;
+Gives 2.
+
+Division could return floating point.
+
+Modulo operator: % for remainder.
+
+var t=1+2*3/4; //Order of operations: BEDMAS
+
+Use paranthesis to group operations. (1+2)*3/4-> 2.25
+
+If they are of same level-> left to right.
+
+Numbers: Comparisons:
+
+<, >, <=, >=. Even if represntations are different like 1<=1.0 true
+
+1=="1" : true
+===: Checks type and value
+==: checks only value
+
+console.log(1===parseInt("1"));
+
+!== -> strictly not equal
+
+Math functions
+
+var u=Math.random();
+
+Math.random() returns a value between 0 and 1.
+
+var u=Math.random()*10;
+var u=Math.round(Math.random()*10);
+
+var v=Math.round(2.3); //2
+var v=Math.round(2.7);//3
+var w=Math.floor(3.7); //3
+var x=Math.ceil(6.2);//7
+
+var y=Math.pow(2,5);
+var z=Math.sqrt(4);
+
+Typing Math into console gives us our options
+
+Math.min, Math.max, Math.sin etc
+
+Math.PI ->constants too
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
