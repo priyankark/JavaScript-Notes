@@ -1,0 +1,122 @@
+var name="Jim";
+console.log(name); //Display the value in the console
+
+Can also use ' instead of "
+var name2='Jim';
+console.log(name2);
+
+var statement='This is Jim's string' : Causes problem.
+So use ". Premature end of string.
+If you use ", then ' is not interpreted as end of string.
+
+(Inverse is also true).
+
+Consider the statement: He said "This is Jim's string".
+
+Both of the above methods won't work. So we need to use \
+
+var statement3='He said "This is Jim\'s string"'
+console.log(statement3);
+
+Strings: Escape characters
+
+var path="C:\folder\myfile.txt";
+console.log(path);
+//Don't get what we want.
+// Both backslash and f would be missing.
+
+To enter a literal backslash: use \\. Only one would be displayed.
+
+Create a string with multiple lines
+var multiline="This is line1
+This is line2
+This is line3";
+
+//This causes an error. Closing " has to be on same line.
+
+To create a multiline string use \n. Newline character.
+
+To insert a tab use \t. A new tab character would be inserted in its place.
+
+Concatenation
+
+var part1="Hello";
+var part2="World";
+var whole=part1+part2;
+console.log(whole);
+
+Can also directly use the strings or string+variable.
+
+//Another implementation of multiline
+var multiline="This is line1\n"+"This is line2\n"+"This is line3";
+
+String methods and Properties
+
+var length-whole.length; //length is a property
+console.log(whole,length);
+
+var index=whole.indexOf("world");
+console.log(index);
+
+If you are looking for a substring that doesnot exist
+var index2=whole.indexOf("world");
+console.log(index2); //Returns -1
+
+if(whole.indexOf("W")!==-1)
+console.log("W exists in string");
+else
+console.log("W doesnot exist");
+
+console.log(whole.charAt(2));
+//Returns character at index position 2
+
+Get a substr of a string: Exanple get world out of whole
+
+var world=whole.substr(start,length); //syntax.
+
+"Hello World"
+var world=whole.substr(6,5);
+
+//Lowercase
+console.log(whole.toLowerCase());
+console.log(whole);
+
+console.log(whole.toiUpperCase());
+
+//String comparison
+
+var first="hello";
+var second="hello";
+
+if(first====second) //Is strictly equal to.
+console.log("the strings are equal");
+else
+console.log("Strings are different);
+
+The strings are different.
+
+To compare irrespective of case:
+if(first.toLowerCase()===second.toLowerCase())
+...
+//Insensitive to case of string now
+
+Four other comparisons: <,>,<=,>=
+
+function compare(a,b){
+	console.log(a+"<"+b,a<b);
+}
+
+compare('a','b'); //True
+comapre('a','A'); /false
+
+Any uppercase letter is always less than uppercase- ASCII
+'a'>'A'
+
+compare('apples','oranges');//true
+compare('apples','applications'); //true
+compare('app','apples'); //true
+compare('hello','hello'); //false
+
+
+
+
