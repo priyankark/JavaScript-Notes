@@ -1,0 +1,141 @@
+//JS Arrays
+
+var x=['some','extra','words','here'];
+
+Three elements in the above Array.
+
+console.log(x.length);
+
+var y=['a string',3,true,'pond',function(a,b){return a +b;}];
+y.length->5.
+
+Can place arrays inside arrays.
+
+var z=[] //empty array
+
+//Using an Array constructor 
+var a=new Array(); //constructs a new empty array
+Takes a length parameter
+var a=new Array(50);
+a.length ->50
+
+Get and set Arrays
+
+var my_array=["hello",42, true, function(a) {return a*2}];
+
+var word=my_array[0];
+var number=my_array[1];
+var boolean_value=my_array[2];
+var doubler=my_array[3];
+console.log(doubler(10));
+
+If we try pulling a value that exceeds the length of the array, we get undefined.
+
+my_array[1]=144;
+var new_answer=my_array[1];
+
+We can change the value of an array ta any index.
+
+my_array[14]="A new String";
+Undefined is set to all intermediate indices.
+
+Methods and properties in Arrays
+
+var my_array=[2,3,4];
+console.log(my_array.toString());
+
+my_array.push(5);
+console.log(my_array.toString()); //2,3,4,5
+
+var value=my_array.pop(); //Removes and returns the last value of the array
+
+var my_array=[2,3,4];
+console.log(my_array.toString());
+
+my_array.unshift(1); ->1,2,3,4
+
+var value=my_array.shift(); 
+console.log(array.toString()); ->2,3,4
+
+var my_array=[10,44,32,100,0,44,3,4];
+console.log(my_array.toString());
+
+my_array.sort();
+
+console.log(my_array.toString());
+
+Sorting, by default, is sorted as though the numbers were strings.
+
+We can modify the sort function by providing a comparator function:
+The function takes two items and returns whether the first is smaller, equal or larger than the other.
+
+my_array.sort(function(a,b){
+return a-b;
+}
+);
+a will come before if return is negative. Else a comes after b.
+
+Random sort
+
+my_array.sort(function(a,b) {
+	return Math.random()-0.5;
+}
+);
+
+var my_array=[1,2,3,4,5];
+my_array.reverse();
+
+Methods that don't change the values of the original array
+
+
+Conactenation
+var x=[1,2,3];
+var y=[4,5,6];
+
+var z=x.concat(y);  
+
+array.concat(a,b,c); //Concats in order
+
+var z=x.concat([4,5,6]);
+
+var z=x.concat(4,5,6,7);
+
+If you pass an array, it appends the contents of the array.
+
+Slice
+
+var my_array=[0,1,2,3,4,5];
+
+Slice returns a new array from the start index to the end index.
+
+var result=my_array.slice(1,4); //[1,2,3]
+
+If ending index is out of range, it won't add extra values.
+
+Join
+
+var words=["these","are","some","words"];
+var result=words.join(' ');
+//result=these are some words
+
+Delete
+var my_array=[0,1,2,3,4,5,6];
+console.log(my_array.toString());
+delete my_array[2]; //0,1,,3,4,5,6
+
+Splice
+
+my_array.splice(2,1); //start index, number of elements to remove from the index
+
+So that becomes: 0,1,3,4,5,6
+
+To insert: my_array.splice(2,0,'two');
+
+0,1,two,2,3,4,5,6
+
+To replace: my_array.splice(2,1,'two');
+
+
+
+
+
