@@ -1,0 +1,34 @@
+Shadowing:
+
+var myColor="blue";
+console.log("myColor before myFunc()",myColor);
+
+function myFunc (){
+	var myColor="yellow";
+	console.log(myColor); //yellow
+}
+
+console.log(myColor); //blue
+
+Hoisting:
+
+function doSomething(doit){
+
+	var color="blue",
+	if(doit){
+		var color="red"; //doesn't define a new color variable. Refers to the same because of functional scope not block scope
+		console.log(color);
+	}
+
+	console.log(color);
+
+}
+
+doSomething(false); //blue
+doSomething(true); //red red 
+
+When you declare a variable inside an if or for, it is actually declared at the top and only assignment takes inside. It is 'hoisted' to the top.
+
+
+
+
