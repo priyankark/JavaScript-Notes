@@ -1,0 +1,97 @@
+//JS functions
+
+Example
+function sayHello () {
+	console.log("Hello World!");
+}
+
+sayHello();
+
+function sayHello(name,greeting){
+	if(typeof greeting==='undefined')
+		greeting='Hello';
+	console.log(greeting+" World!"+name);
+}
+
+sayHello("Jim", "Greetings");
+sayHello("Jim");
+
+If you don't provide a return value, a function returns undefined.
+
+Functions: Scopes
+
+var number=1;
+var color='black'; //Global scope
+function showColor(){
+	var color='green'; //A new scope
+	console.log(color); //Green
+	console.log(number); //1
+}
+
+showColor();
+console.log('Global color',color); //black
+console.log('Global number',number); //1
+
+Shadowed variables in the above example. Giving two variables in different scope the same name.
+
+If you miss var, you are refering to the variable in the global scope.
+
+It creates a global vraible if its not already existing.
+
+So don't miss var!
+
+Anonymous functions
+
+var myFunction=function() {
+	console.log('myFunction was called');
+}
+
+myFunction();
+
+A function created without a name is called an anonymous function.
+
+var callTwice=function (targetFunction) {
+	targetFunction();
+	targetFunction();
+}
+
+callTwice(myFunction);
+
+Important note: callTwice(myFunction()) is different from callTwice(myFunction).
+In the former we are first calling the function and then passing it as the target function. So targetFunction is the return value undefined. In the latter, we are actually passing in the function which is what we want.
+
+Executing an anonymous function
+(function() {
+var a,b,c;
+console.log('from anon function');
+})(1,'hello');
+
+Examples of function usage
+
+var button=document.getElementById("action"); 
+var input=document.getElementById("text_field");
+
+button.onclick=function() {
+	console.log('clicked');
+}
+
+button.onclick=function(){
+	console.log('Other click listener');
+}
+
+Aliter
+
+button.addEventListener('click',function() {
+	console.log('clicked');
+});
+
+button.addEventListener('click',function(){
+	console.log('Other click');
+	input.setAttribute('value','Hello World');
+});
+
+
+
+
+
+
