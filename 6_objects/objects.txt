@@ -1,0 +1,130 @@
+//JavaScript Objects
+
+Example:
+var me= {
+	name:"Priyankar",
+	skills:["JS","C"]
+	"favorite color":"green"
+	greet: function(){
+	console.log("hello I am "+me.name);
+	}
+};
+
+console.log(me.name);
+
+console.log(me.skills);
+console.log(me["favorite color"]);
+console.log(me["name']);
+
+Any valid string literal can be used as a key. One can omit the " if its a valididentifier.
+
+Methods
+
+me.greet();
+
+A method is a function that is a property of an object.
+
+var nick={
+	name:"Nick",
+	greet: function(person){
+		console.log("Hello, I am"+person.name);
+	}
+}
+
+nick["greet"](nick);
+
+The binding of "this" to the object happens only when we call it as above.
+
+If we get it out and store in variable the context would be lost.
+
+Any global function is assigned as a method of the global window object.
+
+Call and apply
+
+var jim=function(){
+name: "jim",
+greet: function(){
+	console.log("I am "+this.name);
+}
+
+}
+
+var nick=function(){
+	name:"nick",
+	greet: jim.greet;
+
+}
+
+jim["greet"]();
+nick.greet();
+
+var jimGreet=jim.greet;
+
+jimGreet(); //The this reference isn't present here.
+//I am "" is the output as the window has no name
+
+
+It lost its association with the original object.
+
+Suppose we still wanted it to be bound to jim instead of window
+
+jimGreet.call(jim); //Hello my name is Jim.
+jimGreet.call(nick); //this is now bound to Nick. Hello I am Nick.
+
+If you pass an empty object: Hello I am undefined.
+
+We can also do something like jim.greet.call(nick);
+
+Apply: jim.greet.apply(nick);
+
+Call and Apply differ in how we take arguments.
+
+Suppose the greet function is updated to:
+greet: function(name, mood){
+
+	name=name||"you";
+	mood=mood||"good";
+	console.log("hello I am "+name+" in a "+mood+" mood!");
+}
+
+jimGreet.call({name:"Amit"},"Matt","Bad");
+
+jim.greet.apply(nick,["Matt","bad"]); //uses an array o arguments.
+
+Thats the only difference. Call takes multiple arguments. Apply takes just two
+with 2 arguments.
+
+Prototypes
+
+personProitotype={
+	name:"Anonymous",
+	greet: function(name,mood){
+		name=name||"You";
+		mood=mood||"good";
+	console.log("hello, "+name+" I am "+this.name+" and I am in a "+mood+
+			" mood!");
+	},
+	species: 'Homo Sapien'
+}
+
+jim=new personPrototype;
+jm.name="Jim";
+jim.greet();
+
+Coinstructor function is just like any other function.
+
+function Person(name){
+			this.name=name;
+		}
+
+Person.prototype=personPrototype;
+jim=new Person("Jim");
+ 
+jim
+jim.greet();
+All of these things would now work because we defined the prototype.
+
+Chain-> prototype chain.
+
+Use capital letter for Constructors.
+
